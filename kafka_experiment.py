@@ -72,7 +72,7 @@ def experiment(conf):
                  "id": "1",
                  "algorithm": {"crossover": {"type": "cxTwoPoint", "CXPB": [0, 0.2]}, "name": "GA",
                                "mutation": {"MUTPB": 0.5, "indpb": 0.05, "sigma": 0.5, "type": "mutGaussian", "mu": 0},
-                               "selection": {"type": "tools.selTournament", "tournsize": 2},
+                               "selection": {"type": "tools.selTournament", "tournsize": 8},
                                "iterations": conf[dim]['NGEN']},
                  "experiment":
                      {"owner": "mariosky", "type": "benchmark", "experiment_id": conf['EXPERIMENT_ID']}}
@@ -98,7 +98,7 @@ if __name__ == '__main__':
     PROJECT_PATH = r'/Users/mario/KafkaOpenWhisk/'
     experiment(conf)
     data_folder = process_logs.process_logs(conf['EXPERIMENT_ID'])
-    print "python -m cocopp -o "+ DESTINATION_PATH + str(conf['EXPERIMENT_ID'])+ " " + PROJECT_PATH+ data_folder
+    print "python -m cocopp -o "+ DESTINATION_PATH + str(conf['EXPERIMENT_ID'])+ " " + PROJECT_PATH + data_folder[2:]
 
 
 

@@ -100,8 +100,8 @@ def experiment(env):
                     other = queue.pop()
                     #crossover
 
-                    cxOnePoint(pop['population'], other['population'])
-                    #pop['population'] = cxBestFromEach(pop['population'], other['population'])
+                    #cxOnePoint(pop['population'], other['population'])
+                    pop['population'] = cxBestFromEach(pop['population'], other['population'])
                     queue.appendleft(other)
 
 
